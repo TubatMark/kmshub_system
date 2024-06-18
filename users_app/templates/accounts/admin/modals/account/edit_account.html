@@ -43,12 +43,6 @@
                           <input type="text" class="form-control" id="position" name="position" value="{{user.position}}" required />
                         </div>
                       </div>
-                      <div class="col">
-                        <div class="form-group">
-                          <label for="occupation" style="font-weight: bold;">Occupation <span style="color: green;">*</span></label>
-                          <input type="text" class="form-control" id="occupation" name="occupation" value="{{user.occupation}}" required />
-                        </div>
-                      </div>
                     </div>
                     <div class="row">
                       <div class="col">
@@ -58,7 +52,7 @@
                             <option value="" disabled>{{user.user_type}}</option>
                             <option value="secretariat">Secretariat</option>
                             <option value="general">General User</option>
-                            <option value="expert">Experts</option>
+                            {% comment %} <option value="expert">Experts</option> {% endcomment %}
                             <option value="cmi">CMI</option>
                           </select>
                         </div>

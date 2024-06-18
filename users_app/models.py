@@ -82,18 +82,18 @@ class CustomUser(AbstractUser):
     )
     date_created = models.DateField(default=timezone.now, null=True, blank=True)
 
+    # Set username to be nullable and unique to avoid conflicts
+    username = models.CharField(max_length=150, unique=True, blank=True, null=True)
+
     objects = CustomUserManager()
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.username = ""  # Set username to empty string
-
     def save(self, *args, **kwargs):
-        # Ensure username is always an empty string
-        self.username = ""
+        # Ensure username is set to None before saving if it's an empty string
+        if self.username == "":
+            self.username = None
         super().save(*args, **kwargs)
 
 

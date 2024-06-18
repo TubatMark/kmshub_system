@@ -1,21 +1,55 @@
+.commodity-info {
+    margin-top: 20px;
+}
+
+.container {
+    min-height: 55vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.card {
+    margin-bottom: 5px;
+    background-color: #0174BE;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.card ul {
+    margin: 7px 0;
+    color: white;
+}
+
+.card a {
+    color: white;
+    text-align: justify;
+}
+
+.commodity-not-tagged {
+    font-size: 12px;
+}
+
 .commodityName {
     font-weight: bolder;
     text-align: center;
 }
 
-.commodityName:hover{
+.commodityName:hover {
     color: #0174BE;
 }
 
 #commodityImg {
     max-width: 100%;
-    max-height: 300px;
-    /* Adjust the maximum height as needed */
+    max-height: 100%;
     display: block;
-    margin: 0 auto;
+    margin-top: 70px;
     border-radius: 5px;
 }
 
-.description{
+.description {
     text-align: center;
 }

@@ -1700,7 +1700,7 @@ def all_commodities(request):
         **info,
     }
 
-    return render(request, "accounts/general/general_all_commodities.html", context)
+    return render(request, "accounts/general/general.all.commodities.html", context)
 
 
 def all_related_resources(request, id, name):

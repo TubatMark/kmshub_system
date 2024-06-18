@@ -140,7 +140,6 @@
               <th>Email</th>
               <th>Institution</th>
               <th>Position</th>
-              <th>Occupation</th>
               <th>User Type</th>
               <th>Actions</th>
             </tr>
@@ -154,11 +153,10 @@
                 <td>{{ user.email }}</td>
                 <td>{{ user.institution }}</td>
                 <td>{{ user.position }}</td>
-                <td>{{ user.occupation }}</td>
                 <td>{{ user.user_type|capfirst }}</td>
                 <td>
-                  <button type="button" style="background-color: #FFC436; color: #fff;" class="btn btn-sm view-btn" data-toggle="modal" data-target="#editAccountModal" data-userid="{{ user.id }}" data-firstname="{{ user.first_name }}" data-lastname="{{ user.last_name }}" data-datejoined="{{ user.date_joined|date:'Y-m-d' }}" data-email="{{ user.email }}" data-institution="{{ user.institution }}" data-position="{{ user.position }}" data-occupation="{{ user.occupation }}" data-usertype="{{ user.user_type }}"><i class="fa-solid fa-pen-to-square"></i></button>
-                  <button type="button" style="background-color: #0174BE; color: #fff" class="btn btn-sm view-btn" data-toggle="modal" data-target="#viewAccountModal" data-userid="{{ user.id }}" data-firstname="{{ user.first_name }}" data-lastname="{{ user.last_name }}" data-datejoined="{{ user.date_joined|date:'Y-m-d' }}" data-email="{{ user.email }}" data-institution="{{ user.institution }}" data-position="{{ user.position }}" data-occupation="{{ user.occupation }}" data-usertype="{{ user.user_type }}"><i class="fa-solid fa-eye"></i></button>
+                  <button type="button" style="background-color: #FFC436; color: #fff;" class="btn btn-sm view-btn" data-toggle="modal" data-target="#editAccountModal" data-userid="{{ user.id }}" data-firstname="{{ user.first_name }}" data-lastname="{{ user.last_name }}" data-datejoined="{{ user.date_joined|date:'Y-m-d' }}" data-email="{{ user.email }}" data-institution="{{ user.institution }}" data-position="{{ user.position }}" data-usertype="{{ user.user_type }}"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button type="button" style="background-color: #0174BE; color: #fff" class="btn btn-sm view-btn" data-toggle="modal" data-target="#viewAccountModal" data-userid="{{ user.id }}" data-firstname="{{ user.first_name }}" data-lastname="{{ user.last_name }}" data-datejoined="{{ user.date_joined|date:'Y-m-d' }}" data-email="{{ user.email }}" data-institution="{{ user.institution }}" data-position="{{ user.position }}" data-usertype="{{ user.user_type }}"><i class="fa-solid fa-eye"></i></button>
                   <a data-placement="top" data-toggle="tooltip" title="delete" href="/delete-account/{{ user.id }}" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
                 </td>
               </tr>
@@ -275,7 +273,6 @@
         var userEmail = $(this).data('email')
         var institution = $(this).data('institution')
         var position = $(this).data('position')
-        var occupation = $(this).data('occupation')
         var userType = $(this).data('usertype')
     
         // Capitalize first letter of first name and last name
@@ -293,7 +290,6 @@
         $('#viewAccountModal').find('#viewAccountEmail').text(userEmail)
         $('#viewAccountModal').find('#viewAccountInstitution').text(institution)
         $('#viewAccountModal').find('#viewAccountPosition').text(position)
-        $('#viewAccountModal').find('#viewAccountOccupation').text(occupation)
         $('#viewAccountModal').find('#viewAccountUsertype').text(capitalizedUserType)
       })
     })
@@ -310,7 +306,6 @@
         var userEmail = $(this).data('email')
         var institution = $(this).data('institution')
         var position = $(this).data('position')
-        var occupation = $(this).data('occupation')
         var userType = $(this).data('usertype')
     
         // Populate modal fields with user-specific data
@@ -319,7 +314,6 @@
         $('#editAccountModal').find('#email').val(userEmail)
         $('#editAccountModal').find('#institution').val(institution)
         $('#editAccountModal').find('#position').val(position)
-        $('#editAccountModal').find('#occupation').val(occupation)
         $('#editAccountModal').find('#user_type').val(userType)
     
         // Update form action attribute with the user ID
@@ -335,6 +329,7 @@
       console.log('Add Data button clicked')
       // Add your logic here for adding data
       $('#accountRegistrationModal').modal('show')
+      //alert("To be update!") 
     }
     $(document).ready(function () {
       let table = $('#accountsTable').DataTable({
